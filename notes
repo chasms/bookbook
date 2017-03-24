@@ -14,20 +14,20 @@ Interface
   * /login as root page
 
 Bookmarks
-  * has name
-  * has link
-  * belongs to user
-  * has many bookmark_tags
-  * has many tags through bookmark_tags
+  * has name [DONE]
+  * has link [DONE]
+  * belongs to account [DONE]
+  * has many bookmark_tags [DONE]
+  * has many tags through bookmark_tags [DONE]
 
 Tags - model
-  * has name
-  * has_many bookmark_tags
-  * has_many bookmarks through bookmark_tags
+  * has name [DONE]
+  * has_many bookmark_tags [DONE]
+  * has_many bookmarks through bookmark_tags [DONE]
 
 Bookmark_tags - join table
-  * belongs to bookmark
-  * belongs to tag
+  * belongs to bookmark [DONE]
+  * belongs to tag [DONE]
 
 Routes:
   * get '/login', to: 'sessions#new', as: login
