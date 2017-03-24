@@ -1,4 +1,4 @@
-Account - model
+Account - model [DONE]
   * has name
   * has password_digest
   * has_many bookmarks
