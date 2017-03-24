@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   def new
       @account = Account.new
       if logged_in?
-        redirect_to @user
+        redirect_to @account
       end
   end
 
