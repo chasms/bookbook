@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
 
-  get 'tags/index'
-
-  get 'tags/show'
+  get '/signup', to: 'accounts#new'
+  post '/signup', to: 'accounts#create'
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  resource :tags, only: [:index, :show]
+  resource :tags, only: [:show]
   resource :bookmarks, except: [:show]
   resource :accounts, only: [:show]
 end
