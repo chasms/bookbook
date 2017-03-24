@@ -5,9 +5,9 @@ class ApplicationController < ActionController::Base
     !!Account.where(id: session[:account_id]).first
   end
 
-  def account
+  def current_user
     if logged_in?
-      @account = Account.find(session[:account_id])
+      @user = Account.find(session[:account_id])
     else
       if session    # destroy sessions that are no longer linked to user accounts
         session.destroy
@@ -15,5 +15,7 @@ class ApplicationController < ActionController::Base
       redirect_to login_path    # if not logged in, redirect to login
     end
   end
+
+
 
 end

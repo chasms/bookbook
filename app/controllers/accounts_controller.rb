@@ -7,15 +7,15 @@ class AccountsController < ApplicationController
   def create
     @account = Account.new(account_params)
     if !@account.save
-      render root_path
+      render signup_path
     else
       session[:account_id] = @account.id
-      redirect_to root_path
+      redirect_to account_path(@account)
     end
   end
 
   def show
-    @account = Account.find_by(id: params)
+    @account = Account.find_by(id: params[:id])
     if @account
       render :show
     else

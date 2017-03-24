@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   resource :tags, only: [:show]
   resource :bookmarks, except: [:show]
-  resource :accounts, only: [:show]
+
+  get 'account/:id', to: 'accounts#show', as: 'account'
   get '/', to: 'sessions#new', as: 'root'
-  
+
 end
