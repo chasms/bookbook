@@ -1,0 +1,38 @@
+Account - model
+  * has name
+  * has password_digest
+  * has_many bookmarks
+  * has_many bookmark_tags through bookmarks
+  * has_many tags through bookmark_tags
+  * should be able to login
+  * logout
+  * authenticated with sessions
+  * has_secure_password
+
+Interface
+  * navbar
+  * /login as root page
+
+Bookmarks
+  * has name
+  * has link
+  * belongs to user
+  * has many bookmark_tags
+  * has many tags through bookmark_tags
+
+Tags - model
+  * has name
+  * has_many bookmark_tags
+  * has_many bookmarks through bookmark_tags
+
+Bookmark_tags - join table
+  * belongs to bookmark
+  * belongs to tag
+
+Routes:
+  * get '/login', to: 'sessions#new', as: login
+  * post 'login', to: 'sessions#create'
+  * delete '/logout', to: sessions#destroy, as: logout
+  * resource :tags, only: [:index, :show]
+  * resources :bookmarks, except: [:show]
+  * resources :accounts, only: [:show]
